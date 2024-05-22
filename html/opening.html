@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opening</title>
+    <style>
+        @import url(../css/quiz.css);
+    </style>
+    <script src="../javascript/chess.js"></script>
 </head>
 <body>
-    <div>
-        <div>
-            <img src="" alt="">
+    <div class="Qboard">
+        <div id="chessboardCase">
+            <img src="../images/chess/Caro-Kann Defence.jpeg" class="chessboard front" id="front">
+            <img src="../images/chess/Dutch Defence.jpeg" class="chessboard back" id="back">
         </div>
         <div>
-            <img src="" alt="">
+            <h1>What's Opening?</h1>
+            <button onclick="answer(1)" class="A">1</button>
+            <button onclick="answer(2)" class="A">2</button>
+            <button onclick="answer(3)" class="A">3</button>
+            <button onclick="answer(4)" class="A">4</button>
         </div>
     </div>
 </body>

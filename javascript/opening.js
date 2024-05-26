@@ -1,10 +1,5 @@
 const Question = ["Caro-Kann Defence", "Dutch Defence", "French Defence", "Italian Game", "King's Gambit", "London System", "Queen's Gambit", "Ruy-Lopez Opening", "Scandinavian Defence", "Scotch Game", "Sicilian Defence", "Vienna Game"]
 let QQuiz = Question.slice();
-let imgCase;
-let back;
-let front;
-let A;
-let correct;
 let T = 0;
 let F = 0;
 
@@ -12,19 +7,22 @@ let F = 0;
 function Quiz() {
     A = document.getElementsByClassName("A");
     cloneQuiz = QQuiz.slice();
-    var randNum = Math.floor(Math.random() * QQuiz.length);
+    var randNum = Math.floor(Math.random() * cloneQuiz.length);
     correct = Math.floor(Math.random() * 4);
     front.src = back.src;
     back.src = "../images/chess/opening/"+cloneQuiz[randNum]+".jpeg";
     A[correct].innerHTML = cloneQuiz[randNum];
-    cloneQuiz.splice(randNum,1);
     QQuiz.splice(randNum,1);
-    for (i = 0;i < 4;i++){
-        if (i == correct){
-            continue;
+    cloneQuiz = Question.slice();
+    for (i = 0;i<cloneQuiz.length;i++){
+        if(cloneQuiz[i] == A[correct].innerHTML){
+            cloneQuiz.splice(i,1);
+            break;
         }
-        else{
-            randNum = Math.floor(Math.random() * (QQuiz.length - i - 1));
+    }
+    for (i = 0;i < 4;i++){
+        if (i != correct){
+            randNum = Math.floor(Math.random() * (cloneQuiz.length - i));
             A[i].innerHTML = cloneQuiz[randNum];
             cloneQuiz.splice(randNum,1);
         }
@@ -49,6 +47,7 @@ window.onload = function(){
     front = document.getElementById("front");
     imgCase = document.getElementById("imgCase");
     A = document.getElementsByClassName("A");
+    Qboard = document.getElementById("Qboard");
     Quiz();
 }
 function answer(k){
@@ -63,14 +62,13 @@ function answer(k){
         A[k-1].style.backgroundColor = "rgb(255,200,200)";
     }
     if (T + F == 5){
-        setTimeout(() => {
-            A[k-1].style.color = "black"
-            A[k-1].style.backgroundColor = "transparent";
-        }, 500);
         var data = {
             "correctNum" : String(T),
             "returnHtml" : location.href
         };
+        setTimeout(() => {
+            A[k-1].style.backgroundColor = "transparent";
+        }, 500);
         setTimeout(() => {
             window.localStorage.clear();
             localStorage.setItem("data", JSON.stringify(data))
@@ -79,11 +77,10 @@ function answer(k){
     }
     else{
         setTimeout(() => {
-            A[k-1].style.color = "black"
             A[k-1].style.backgroundColor = "transparent";
         }, 500);
         setTimeout(() => {
-            Quiz()
+            Quiz();
         }, 1000);
     }
 }

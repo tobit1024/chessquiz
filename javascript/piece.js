@@ -1,10 +1,5 @@
 const Question = ["bishop", "rook", "knight", "king", "queen", "pawn"];
 let QQuiz = Question.slice();
-let imgCase;
-let back;
-let front;
-let A;
-let correct;
 let T = 0;
 let F = 0;
 
@@ -12,19 +7,22 @@ let F = 0;
 function Quiz() {
     A = document.getElementsByClassName("A");
     cloneQuiz = QQuiz.slice();
-    var randNum = Math.floor(Math.random() * QQuiz.length);
+    var randNum = Math.floor(Math.random() * cloneQuiz.length);
     correct = Math.floor(Math.random() * 4);
     front.src = back.src;
-    back.src = "../images/chess/opening/"+cloneQuiz[randNum]+".jpeg";
+    back.src = "../images/chess/piece/dark/b"+cloneQuiz[randNum]+".png";
     A[correct].innerHTML = cloneQuiz[randNum];
-    cloneQuiz.splice(randNum,1);
     QQuiz.splice(randNum,1);
-    for (i = 0;i < 4;i++){
-        if (i == correct){
-            continue;
+    cloneQuiz = Question.slice();
+    for (i = 0;i<cloneQuiz.length;i++){
+        if(cloneQuiz[i] == A[correct].innerHTML){
+            cloneQuiz.splice(i,1);
+            break;
         }
-        else{
-            randNum = Math.floor(Math.random() * (QQuiz.length - i - 1));
+    }
+    for (i = 0;i < 4;i++){
+        if (i != correct){
+            randNum = Math.floor(Math.random() * (cloneQuiz.length - i));
             A[i].innerHTML = cloneQuiz[randNum];
             cloneQuiz.splice(randNum,1);
         }
@@ -64,7 +62,6 @@ function answer(k){
     }
     if (T + F == 5){
         setTimeout(() => {
-            A[k-1].style.color = "black"
             A[k-1].style.backgroundColor = "transparent";
         }, 500);
         var data = {
@@ -79,11 +76,10 @@ function answer(k){
     }
     else{
         setTimeout(() => {
-            A[k-1].style.color = "black"
             A[k-1].style.backgroundColor = "transparent";
         }, 500);
         setTimeout(() => {
-            Quiz()
+            Quiz();
         }, 1000);
     }
 }

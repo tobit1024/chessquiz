@@ -3,9 +3,9 @@ const Question = {
     piece : ["bishop", "rook", "knight", "king", "queen", "pawn"],
     noob : ["among us","battle ground","dance of fire and ice","getting over it","grand theft auto","portal","stardew valley","tekken","terraria","yu gi oh master duel"],
     easy : ["binding of isaac","cookie clicker","counter strike","cuphead","dead by daylight","don't starve","dungreed","hand simulator","lethal company","project zomboid","rainbow six siege","rhythm doctor","spore","the forest"],
-    normal : ["apex legend","astroneer","garry mod","goose goose duck","hollow knight","human fall flat","inscyption","monster hunter","pico park","raft"],
+    normal : ["apex legend","astroneer","garry mod","goose goose duck","hollow knight","human fall flat","inscryption","monster hunter","pico park","raft"],
     hard : ["ark survival","baba is you","forager","house flipper","it takes two","poppy playtime","power wash simulator","scp secret laboratory","slay the spire","slime launcher","subnautica"],
-    expert : ["cult of the lamb","escape simulator","lobotomy corporation","loop hero","melatonin","omori","oxygen not included","potion craft","prepassout","ultimate chicken hoprse","we were here"]
+    expert : ["cult of the lamb","escape simulator","lobotomy corporation","loop hero","melatonin","omori","oxygen not included","potioncraft","prepassout","ultimate chicken horse","we were here"]
 };
 let quizName = localStorage.getItem("quizName");
 //const quizName = location.href.split("/")[location.href.split("/").length - 1].split(".")[0];

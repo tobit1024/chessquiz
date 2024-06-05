@@ -8,6 +8,18 @@ const Question = {
     expert : ["cult of the lamb","escape simulator","lobotomy corporation","loop hero","melatonin","omori","oxygen not included","potioncraft","prepassout","ultimate chicken horse","we were here"]
 };
 let quizName = localStorage.getItem("quizName");
+let quizNum = localStorage.getItem("quizNum");
+
+if(quizNum == 11){
+    quizNum = Question[quizName].length;
+    localStorage.setItem("quizNum", quizNum);
+}
+if(Question[quizName].length < quizNum){
+    var caution = "지정한 문제 개수보다 선택한 과목의 문제 개수가 적어 자동으로 문제의 개수를 "+Question[quizName].length+"개로 바꿉니다." 
+    alert(caution)
+    quizNum = Question[quizName].length;
+    localStorage.setItem("quizNum", quizNum);
+}
 //const quizName = location.href.split("/")[location.href.split("/").length - 1].split(".")[0];
 const typename = {
     opening : ".jpeg",
@@ -30,7 +42,7 @@ function Quiz() {
     var randNum = Math.floor(Math.random() * cloneQuiz.length);
     correct = Math.floor(Math.random() * 4);
     front.src = back.src;
-    back.src = "../images/"+quizName+"/"+cloneQuiz[randNum]+typename[quizName];
+    back.src = "../images/"+quizName+"/"+cloneQuiz[randNum]+typename[quizName]; 
     A[correct].innerHTML = cloneQuiz[randNum];
     QQuiz.splice(randNum,1);
     cloneQuiz = Question[quizName].slice();
@@ -84,13 +96,12 @@ function answer(k){
             console.log("correct!");
             T++;
             A[k-1].style.backgroundColor = "rgb(200,255,200)";
-        }
-        else{
+        }else{
             console.log("incorrect...");
             F++;
             A[k-1].style.backgroundColor = "rgb(255,200,200)";
         }
-        if (T + F == 5){
+        if (T + F == quizNum){
             var correctNum = String(T);
             setTimeout(() => {
                 A[k-1].style.backgroundColor = "transparent";
@@ -100,8 +111,7 @@ function answer(k){
                 localStorage.setItem("correctNum", correctNum);
                 location.href = "../html/end.html";
             }, 1000);
-        }
-        else{
+        }else{
             setTimeout(() => {
                 A[k-1].style.backgroundColor = "transparent";
             }, 500);

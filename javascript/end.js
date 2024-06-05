@@ -1,17 +1,9 @@
 let quizName = localStorage.getItem("quizName");
 let correctNum = localStorage.getItem("correctNum");
-let star = "⭐"
-let unstar = "☆"
+let quizNum = localStorage.getItem("quizNum")
 
 window.onload = function(){
-    for (let i = 0 ; i < 5 ; i++){
-        if (i < correctNum){
-            document.getElementById("star").innerHTML += star;
-        }
-        else{
-            document.getElementById("star").innerHTML += unstar;
-        }
-    }
+    document.getElementById("score").innerHTML = "정답률 : "+String(Math.floor(correctNum/quizNum*10000)/100) + "%";
 }
 
 function retry(){

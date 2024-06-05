@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHESS QUIZ.</title>
     <style>
-        @import url(css/main.css);
+        @import url(css/index.css);
         @import url(css/mark.css);
     </style>
+    <script src="javascript/index.js"></script>
 </head>
 <body>
     <figure id="mark">
-        <a href="../index.html"><img src="images/mark.png"></a>
+        <a href="index.html"><img src="images/mark.png"></a>
         <figcaption>THE QUIZ</figcaption>
+        <p>문제 개수</p>
+        <input type="range" min="1" max="11" value="5" step="1" id="quizNum" onchange="quizNumChange()">
+        <p id="quizNumCaption">5개</p>
     </figure>
     <div class="select1">
         <div>

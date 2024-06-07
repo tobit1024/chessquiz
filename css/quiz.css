@@ -6,14 +6,15 @@
 body {
     width: 100%;
     height: 100%;
+    background-color: slategray;
 }
 .Qboard {
     display: flex;
     margin: 100px auto;
     box-sizing: border-box;
-    width: 800px;
+    width: 850px;
     height: 500px;
-    background-color: white;
+    background-color:dimgray;
     border-radius: 50px;
     box-shadow: 0 0 50px gray;
     padding: 50px;
@@ -26,16 +27,18 @@ body {
     position: absolute;
     transform-style: preserve-3d;
     transform: perspective(600px);
+    border: 10px solid black;
 }
 #imgCase * {
     transform-style: preserve-3d;
 }
 .Qboard > div:nth-child(2) {
+    margin: aut;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     transform: translateX(400px);
-    width: 300px;
+    width: 400px;
     height: 400px;
 }
 .Qboard > div:nth-child(2) > h1 {

@@ -7,18 +7,18 @@ const Question = {
     hard : ["ark survival","baba is you","forager","house flipper","it takes two","poppy playtime","power wash simulator","scp secret laboratory","slay the spire","slime launcher","subnautica"],
     expert : ["cult of the lamb","escape simulator","lobotomy corporation","loop hero","melatonin","omori","oxygen not included","potioncraft","prepassout","ultimate chicken horse","we were here"]
 };
-let quizName = localStorage.getItem("quizName");
-let quizNum = localStorage.getItem("quizNum");
+let quizName = sessionStorage.getItem("quizName");
+let quizNum = sessionStorage.getItem("quizNum");
 
 if(quizNum == 11){
     quizNum = Question[quizName].length;
-    localStorage.setItem("quizNum", quizNum);
+    sessionStorage.setItem("quizNum", quizNum);
 }
 if(Question[quizName].length < quizNum){
     var caution = "지정한 문제 개수보다 선택한 과목의 문제 개수가 적어 자동으로 문제의 개수를 "+Question[quizName].length+"개로 바꿉니다." 
     alert(caution)
     quizNum = Question[quizName].length;
-    localStorage.setItem("quizNum", quizNum);
+    sessionStorage.setItem("quizNum", quizNum);
 }
 //const quizName = location.href.split("/")[location.href.split("/").length - 1].split(".")[0];
 const typename = {
@@ -107,8 +107,8 @@ function answer(k){
                 A[k-1].style.backgroundColor = "transparent";
             }, 500);
             setTimeout(() => {
-                localStorage.setItem("quizName", quizName);
-                localStorage.setItem("correctNum", correctNum);
+                sessionStorage.setItem("quizName", quizName);
+                sessionStorage.setItem("correctNum", correctNum);
                 location.href = "../html/end.html";
             }, 1000);
         }else{

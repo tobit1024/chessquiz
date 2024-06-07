@@ -14,26 +14,28 @@
     <figure id="mark">
         <a href="index.html"><img src="images/mark.png"></a>
         <figcaption>THE QUIZ</figcaption>
-        <p>문제 개수</p>
-        <input type="range" min="1" max="11" value="5" step="1" id="quizNum" onchange="quizNumChange()">
-        <p id="quizNumCaption">5개</p>
+        <div>
+            <p>문제 개수</p>
+            <input type="range" min="1" max="11" value="5" step="1" id="quizNum" onchange="quizNumChange()">
+            <p id="quizNumCaption">5개</p>
+        </div>
     </figure>
     <div class="select1">
         <div>
             <img src="Images/chess.jpg">
             <div>
-                <a href="html/quiz.html" onclick='localStorage.setItem("quizName", "piece")'><p>What name is this?</p><p>(piece)</p></a>
-                <a href="html/quiz.html" onclick='localStorage.setItem("quizName", "opening")'><p>What name is this?</p><p>(opening)</p></a>
+                <a href="html/quiz.html" onclick='sessionStorage.setItem("quizName", "piece")'><p>What name is this?</p><p>(piece)</p></a>
+                <a href="html/quiz.html" onclick='sessionStorage.setItem("quizName", "opening")'><p>What name is this?</p><p>(opening)</p></a>
             </div>
         </div>
         <div>
             <img src="Images/steam.png">
             <div>
-                <a href="html/quiz.html" onclick='localStorage.setItem("quizName", "noob")'><p>What game is this?</p><p>(noob)</p></a>
-                <a href="html/quiz.html" onclick='localStorage.setItem("quizName", "easy")'><p>What game is this?</p><p>(easy)</p></a>
-                <a href="html/quiz.html" onclick='localStorage.setItem("quizName", "normal")'><p>What game is this?</p><p>(normal)</p></a>
-                <a href="html/quiz.html" onclick='localStorage.setItem("quizName", "hard")'><p>What game is this?</p><p>(hard)</p></a>
-                <a href="html/quiz.html" onclick='localStorage.setItem("quizName", "expert")'><p>What game is this?</p><p>(expert)</p></a>
+                <a href="html/quiz.html" onclick='sessionStorage.setItem("quizName", "noob")'><p>What game is this?</p><p>(noob)</p></a>
+                <a href="html/quiz.html" onclick='sessionStorage.setItem("quizName", "easy")'><p>What game is this?</p><p>(easy)</p></a>
+                <a href="html/quiz.html" onclick='sessionStorage.setItem("quizName", "normal")'><p>What game is this?</p><p>(normal)</p></a>
+                <a href="html/quiz.html" onclick='sessionStorage.setItem("quizName", "hard")'><p>What game is this?</p><p>(hard)</p></a>
+                <a href="html/quiz.html" onclick='sessionStorage.setItem("quizName", "expert")'><p>What game is this?</p><p>(expert)</p></a>
             </div>
         </div>
     </div>

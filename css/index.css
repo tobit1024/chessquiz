@@ -3,6 +3,21 @@
     border: none;
     padding: 0;
 }
+body {
+    background-color:slategray;
+}
+#mark p {
+    height: 20px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+#mark #quizNum {
+    height: 20px;
+    width: 200px;
+    font-weight: bold;
+    transform: translateX(-50px);
+}
 .select1 {
     display: flex;
     justify-content: space-evenly;
@@ -15,7 +30,7 @@
     width: 225px;
     margin: 100px 0 0 0;
     border-radius: 50%;
-    box-shadow: 0 0 10px black;
+    border: 10px solid rgba(0, 0, 0, 0.7);
     transition-duration: 1s;
     transition-delay: 0.2s;
     transform: translateY(-70px);
@@ -26,11 +41,12 @@
     height: 200px;
 }
 .select1 > :nth-child(1) > div > a {
+    box-sizing: border-box;
     height: 100px;
     transform: translateY(30%);
     background-color:#d19d62;
     border-radius: 20px;
-    box-shadow: 0 0 10px #d19d62;
+    border: 7px solid rgba(0, 0, 0, 0.5);
     padding: 20px;
     margin: 5px;
     opacity: 0;
@@ -44,11 +60,12 @@
     text-align: center;
 }
 .select1 > :nth-child(2) > div > a {
+    box-sizing: border-box;
     height: 100px;
     transform: translateY(30%);
     background-color:#629ad1;
     border-radius: 20px;
-    box-shadow: 0 0 10px #629ad1;
+    border: 7px solid rgba(0, 0, 0, 0.5);
     padding: 20px;
     margin: 5px;
     opacity: 0;
@@ -62,7 +79,7 @@
     text-align: center;
 }
 .select1 > div:hover > img {
-    border-radius: 50% 50% 30px 30px;
+    border-radius: 50% 50% 40px 40px;
     transition-delay: 0s;
 }
 .select1 > div:hover > div > a {

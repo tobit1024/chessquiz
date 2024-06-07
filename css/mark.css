@@ -19,13 +19,3 @@
 #mark a img:hover{
     transform: rotatez(540deg);
 }
-#mark p {
-    height: 20px;
-    margin: 0 auto;
-    text-align: center;
-}
-#mark #quizNum {
-    height: 20px;
-    width: 200px;
-    transform: translateX(-50px);
-}
